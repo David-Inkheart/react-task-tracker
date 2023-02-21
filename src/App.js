@@ -1,41 +1,35 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Tasks from './components/Tasks';
 
 //function App() {
 const App = () => {
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      text: "Eleanor's Paediatrician Appointment",
-      day: 'Feb 13th at 1:30pm',
-      reminder: true,
-    },
-    {
-      id: 2,
-      text: 'Valentine Dinner with Sunflower',
-      day: 'Feb 14th at 6:30pm',
-      reminder: true,
-    },
-    {
-      id: 3,
-      text: "Book club watch party",
-      day: 'Feb 17th at 8:30pm',
-      reminder: false,
-    },
-  ])
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    fetch('https://dummyjson.com/todos')
+      .then(res => res.json())
+      .then(data => setTasks(data.todos))
+      .catch(error => console.log(error));
+  }, []);
+
+  // Delete Task
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  }
+
+  // Toggle Reminder
+
+  const toggleReminder = (id) => {
+    setTasks(tasks.map((task) => task.id === id ? { ...task, completed: !task.completed } : task))
+  }
 
   return (
     <div className="container">
       <Header />
-      <Tasks tasks={tasks}/>
+      {tasks.length > 0 ? (<Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/>) : ('Enjoy the silence')}
     </div>
   );
 }
 
-// class App extends React.Component {
-//  render() {
-//    return <h1>Hello from a class</h1>
-//  }
-//}
 export default App;
