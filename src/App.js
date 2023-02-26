@@ -96,7 +96,7 @@ const App = () => {
         <Header onAdd={() => setShowAddTask
         (!showAddTask)} showAdd={showAddTask}/>
         <Routes>
-          <Route path='/' element={
+          <Route exact path='/' element={
             <>
               {showAddTask && <AddTask onAdd={addTask} />}
               {tasks.length > 0 ? (<Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}

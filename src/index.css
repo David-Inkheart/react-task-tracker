@@ -63,10 +63,12 @@ body {
 }
 
 .task:hover {
+  font-size: 15px;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   border-left: 8px solid red;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  transition: 0.5s;
 }
 
 .task.completed {
@@ -112,6 +114,18 @@ body {
 .form-control-check input {
   flex: 2;
   height: 20px;
+}
+
+.aboutList > li{
+  text-decoration: none;
+  color: gray;
+  margin-left: 20px;
+}
+
+.aboutList > li:hover{
+  font-size: 18px;
+  color: #000;
+  transition: 0.5s;
 }
 
 footer {

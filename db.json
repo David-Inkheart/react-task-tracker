@@ -19,10 +19,16 @@
       "completed": false
     },
     {
-      "todo": "test task",
-      "day": "9am today",
+      "todo": "Learn the basics of Vue.js",
+      "day": "Start Wednesday, 1st of March",
       "completed": false,
       "id": 4
+    },
+    {
+      "todo": "Learning Django framework",
+      "day": "Start 26th February, 2023.",
+      "completed": false,
+      "id": 5
     }
   ]
 }
