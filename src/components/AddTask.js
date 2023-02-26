@@ -3,7 +3,7 @@ import {useState} from "react"
 const AddTask = ({ onAdd }) => {
 const [todo, setTodo] = useState('')
 const [day, setDay] = useState('')
-const [completed, setCompleted] = useState('done')
+const [completed, setCompleted] = useState(false)
 
 const onSubmit = (e) => {
     e.preventDefault()
@@ -31,8 +31,8 @@ const onSubmit = (e) => {
             <input type="text" placeholder="Add Day & Time" value={day} onChange={(e) => setDay(e.target.value)} />
         </div>
         <div className="form-control form-control-check">
-            <label>Set Completed</label>
-            <input type="checkbox" checked={completed==='undone'} value={completed} onChange={(e) => setCompleted(e.currentTarget.checked ? "undone" : "")} />
+            <label>Set Reminder</label>
+            <input type="checkbox" checked={completed===false} value={completed} onChange={(e) => setCompleted(e.currentTarget.checked)} />
         </div>
 
         <input type="submit" value="save Task" className="btn btn-block"/>
