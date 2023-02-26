@@ -21,7 +21,7 @@
     {
       "todo": "test task",
       "day": "9am today",
-      "completed": true,
+      "completed": false,
       "id": 4
     }
   ]
